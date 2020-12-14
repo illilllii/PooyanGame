@@ -43,16 +43,19 @@ public class Arrow extends JLabel{
 							if(x==pooyanApp.wolves.get(i).x+40) {
 								if(y>=pooyanApp.wolves.get(i).y+10 && y<=pooyanApp.wolves.get(i).y+60) {
 									System.out.println(TAG+"ų");
+									isKill = false;
 									pooyanApp.wolves.get(i).wolfStatus = false;
 									pooyan.remove(arrow);
-									pooyanApp.remove(pooyanApp.wolves.get(i));
-									pooyanApp.repaint();
-									pooyanApp.wolves.remove(pooyanApp.wolves.get(i));
-									pooyanApp.count--;
-									System.out.println(pooyanApp.count);
-									pooyanApp.remainWolf --;
-									pooyanApp.laRemainWolf.setText(""+pooyanApp.remainWolf);
-									isKill = false;
+									pooyan.score = pooyan.score+200;
+									pooyanApp.wolves.get(i).attackedFall();
+//									pooyanApp.remove(pooyanApp.wolves.get(i));
+//									pooyanApp.repaint();
+//									pooyanApp.wolves.remove(pooyanApp.wolves.get(i));
+//									pooyanApp.count--;
+//									System.out.println(pooyanApp.count);
+//									pooyanApp.remainWolf --;
+//									pooyanApp.laRemainWolf.setText(""+pooyanApp.remainWolf);
+
 									
 									break;
 								}

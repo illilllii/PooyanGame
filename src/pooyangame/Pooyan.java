@@ -19,7 +19,7 @@ public class Pooyan extends JPanel {
 
 	private ImageIcon icElevator, icAttackBow, icAttackPy, icAttackMeatPy;
 	private JLabel laElevator, laAttackBow, laAttackPy, laAttackMeatPy;
-	private JPanel jpPlayer;
+	public JPanel jpPlayer;
 
 	public boolean isUp = false;
 	public boolean isDown = false;
@@ -36,8 +36,13 @@ public class Pooyan extends JPanel {
 	public int meatX = 0;
 	public int meatY = 0;
 
+	public int g = 1 ; // 중력가속도
+	public int meatVx = -15; // meat x축 초기 속도
+	public int meatVy = 0; // meat y축 초기 속도
 	private int list = 0;
 
+	public int score = 0;
+	
 	private PooyanApp pooyanApp;
 	private Wolf wolf;
 
@@ -59,7 +64,7 @@ public class Pooyan extends JPanel {
 		jpPlayer = new JPanel();
 
 		listArrow = new ArrayList<Arrow>();
-		meat = new Meat();
+		meat = new Meat(pooyanApp, wolf, pooyan);
 
 	}
 
@@ -113,6 +118,7 @@ public class Pooyan extends JPanel {
 							meat.setVisible(false);
 							laAttackBow.setVisible(false);
 							laAttackMeatPy.setVisible(true);
+							
 						}
 						try {
 							if (isItem == false) {
@@ -160,7 +166,7 @@ public class Pooyan extends JPanel {
 				public void run() {
 					isUp = true;
 					while (isUp) {
-//						System.out.println(y);
+						System.out.println(y);
 						y--;
 						if (y < 100) {
 							y++;
@@ -187,7 +193,7 @@ public class Pooyan extends JPanel {
 				public void run() {
 					isDown = true;
 					while (isDown) {
-//						System.out.println(y);
+						System.out.println(y);
 						y++;
 						if (y > 413) {
 							y--;
@@ -228,20 +234,31 @@ public class Pooyan extends JPanel {
 						public void run() {
 
 							while (true) {
-								meatX = meatX -2;
-								meatY++;
+								if(meatX>450) {
+									meatX = meatX + meatVx;
+								} else {
+									meatVy= meatVy+g; // 중력가속도에 의해 meatVy 점점 증가
+									meatX = meatX + meatVx;  
+									meatY = meatY + meatVy; 
+								}
+								meat.isKill = true;
+								meat.kill();
 								meat.setLocation(meatX, meatY);
 								if (meatY > 490 || meatX<0) {
 									// meat.y++;
+									meatVy=0;
+									meatX = 496;
+									meatY = 70;
 									meat.setLocation(496, 70);
 									isItem = false;
 									isMeat = false;
+									meat.isKill=false;
 									break;
 									// repaint();
 
 								}
 								try {
-									Thread.sleep(5);
+									Thread.sleep(30);
 								} catch (InterruptedException e) {
 									e.printStackTrace();
 								}
@@ -252,8 +269,7 @@ public class Pooyan extends JPanel {
 				}
 
 			}
-
-			if (isArrow == false) {
+			else if (isArrow == false) {
 //				listArrow.add(new Arrow(pooyanApp, wolf, pooyan));
 				Arrow arrow = new Arrow(pooyanApp, wolf, pooyan);
 				if (isItem == true) {

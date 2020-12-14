@@ -122,7 +122,7 @@ public class PooyanApp extends JFrame implements Initable{
 								wolves.add(new Wolf(pooyanApp, pooyan));
 								getContentPane().add(wolves.get(count));
 								count = wolves.size();
-//								System.out.println("늑대 " + count);
+								System.out.println("늑대 " + count);
 								Thread.sleep(1000);
 							}
 							randTime = (int) (Math.random() * (4000 - 1000 + 1)) + 1000;
@@ -135,5 +135,24 @@ public class PooyanApp extends JFrame implements Initable{
 				}
 			}).start();
 		}
-
+		// 플레이어가 죽었을때 리셋
+		public void reset() {
+			for (int i = 0; i < wolves.size(); i++) {
+//				vcB.get(i).setVisible(false);
+				remove(wolves.get(i));
+				wolves.get(i).wolfStatus = false;
+			}
+			wolves.clear();
+			repaint();
+			count=0;
+			floor =0;
+//			pooyan.x = 486;
+//			pooyan.y = 130;
+//			pooyan.jpPlayer.setLocation(pooyan.x, pooyan.y);
+//			pooyan.setLocation(pooyan.x, pooyan.y);
+			
+			
+			
+//			player.setVisible(false);
+		}
 }
