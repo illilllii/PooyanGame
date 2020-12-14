@@ -55,8 +55,6 @@ public class Arrow extends JLabel{
 //									System.out.println(pooyanApp.count);
 //									pooyanApp.remainWolf --;
 //									pooyanApp.laRemainWolf.setText(""+pooyanApp.remainWolf);
-
-									
 									break;
 								}
 							}

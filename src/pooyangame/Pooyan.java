@@ -249,7 +249,7 @@ public class Pooyan extends JPanel {
 									meatVy=0;
 									meatX = 496;
 									meatY = 70;
-									meat.setLocation(496, 70);
+									meat.setLocation(meatX, meatY);
 									isItem = false;
 									isMeat = false;
 									meat.isKill=false;

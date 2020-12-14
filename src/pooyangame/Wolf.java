@@ -230,7 +230,20 @@ public class Wolf extends JLabel {
 			}
 		}).start();
 	}
-
+    
+// 늑대 원거리 공격
+//	public void rangedAttack() {
+//		new Thread(new Runnable() {
+//			@Override
+//			public void run() {
+//				while(true) {
+//					
+//				}
+//				
+//			}
+//		}).start();
+//	}
+	
 	public void attack() {
 
 		new Thread(new Runnable() {

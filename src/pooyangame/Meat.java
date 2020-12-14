@@ -34,7 +34,6 @@ public class Meat extends JLabel {
 				while (isKill) {
 					try {
 						System.out.println(TAG + "킬 쓰레드 진행중");
-					
 							for (int i = 0; i < pooyanApp.wolves.size(); i++) {
 								if (pooyan.meatX >= pooyanApp.wolves.get(i).x
 										&& pooyan.meatX + 30 <= pooyanApp.wolves.get(i).x + 80) {
@@ -42,13 +41,14 @@ public class Meat extends JLabel {
 											&& pooyan.meatY <= pooyanApp.wolves.get(i).y + 100) {
 										System.out.println(TAG + "킬");
 										pooyanApp.wolves.get(i).wolfStatus = false;
-										pooyanApp.remove(pooyanApp.wolves.get(i));
-										pooyanApp.repaint();
-										pooyanApp.wolves.remove(pooyanApp.wolves.get(i));
-										pooyanApp.count--;
-										System.out.println(pooyanApp.count);
-										pooyanApp.remainWolf--;
-										pooyanApp.laRemainWolf.setText("" + pooyanApp.remainWolf);
+										pooyanApp.wolves.get(i).attackedFall();
+//										pooyanApp.remove(pooyanApp.wolves.get(i));
+//										pooyanApp.repaint();
+//										pooyanApp.wolves.remove(pooyanApp.wolves.get(i));
+//										pooyanApp.count--;
+//										System.out.println(pooyanApp.count);
+//										pooyanApp.remainWolf--;
+//										pooyanApp.laRemainWolf.setText("" + pooyanApp.remainWolf);
 									}
 								}
 							}

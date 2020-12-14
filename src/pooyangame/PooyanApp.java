@@ -38,9 +38,9 @@ public class PooyanApp extends JFrame implements Initable{
 			setVisible(true);
 		}
 
-		public static void main(String[] args) {
-			new PooyanApp();
-		}
+//		public static void main(String[] args) {
+//			new PooyanApp();
+//		}
 
 		@Override
 		public void init() {
@@ -146,11 +146,9 @@ public class PooyanApp extends JFrame implements Initable{
 			repaint();
 			count=0;
 			floor =0;
-//			pooyan.x = 486;
-//			pooyan.y = 130;
-//			pooyan.jpPlayer.setLocation(pooyan.x, pooyan.y);
-//			pooyan.setLocation(pooyan.x, pooyan.y);
-			
+			pooyan.x = 486;
+			pooyan.y = 130;
+			pooyan.jpPlayer.setLocation(pooyan.x, pooyan.y);			
 			
 			
 //			player.setVisible(false);
