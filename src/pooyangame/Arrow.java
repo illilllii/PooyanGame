@@ -45,18 +45,19 @@ public class Arrow extends JLabel{
 			public void run() {
 				while(isKill) {
 					try {
-						System.out.println("킬 쓰레드 진행중"); // 이거 지우면 죽이는거 작동이 잘 안됨. 확인필요
+						System.out.println(TAG+"킬 쓰레드 진행중");
 						for (int i = 0; i < pooyanApp.wolves.size(); i++) {
-							if(x==pooyanApp.wolves.get(i).x+40) {
+							if(x>pooyanApp.wolves.get(i).x&&x<=pooyanApp.wolves.get(i).x+40) {
 								if(y>=pooyanApp.wolves.get(i).y+10 && y<=pooyanApp.wolves.get(i).y+50) {
 									System.out.println(TAG+"킬");
 									isKill = false;
 									pooyanApp.wolves.get(i).wolfStatus = false;
 									pooyan.remove(arrow);
-									pooyan.score = pooyan.score+200;
+									pooyan.score = pooyan.score+200; // 점수 200점
+									pooyanApp.laScore.setText(""+pooyan.score);
 									pooyanApp.wolves.get(i).attackedFall();
 									break;
-								}  else if(y>pooyanApp.wolves.get(i).y+50 && y<=pooyanApp.wolves.get(i).y+100) {
+								}  else if(y>pooyanApp.wolves.get(i).y+60 && y<=pooyanApp.wolves.get(i).y+100) {
 									while(true) {
 										isFall=true;
 										System.out.println(TAG+"화살 추락");

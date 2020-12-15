@@ -24,10 +24,15 @@ public class PooyanApp extends JFrame implements Initable{
 		ArrayList<Wolf> wolves;
 		
 		public JLabel laRemainWolf;
-		public int remainWolf = 34;
+		public int remainWolf = 6;
+		
+		public JLabel laScore;
+		public int score =0;
 		
 		public int randTime; // 늑대 생성 간격 랜덤 시간
 		public int randWolf;  // 늑대 생성 수 랜덤
+		
+		public boolean gameStatus = true;
 		
 		public PooyanApp() {
 			init();
@@ -48,6 +53,7 @@ public class PooyanApp extends JFrame implements Initable{
 			wolves = new ArrayList<Wolf>();
 			pooyan = new Pooyan(pooyanApp, wolf);
 			laRemainWolf = new JLabel();
+			laScore = new JLabel();
 			
 			
 		}
@@ -61,11 +67,18 @@ public class PooyanApp extends JFrame implements Initable{
 			setLocationRelativeTo(null);
 			getContentPane().setLayout(null);
 			setContentPane(laBackground);
+			
 			laRemainWolf.setText(""+remainWolf);
 			laRemainWolf.setSize(30,30);
 			laRemainWolf.setLocation(10,10);
 			laRemainWolf.setFont(new Font("Serif", Font.BOLD, 30));
 			laRemainWolf.setForeground(Color.WHITE);
+			
+			laScore.setText(""+pooyan.score);
+			laScore.setSize(100,30);
+			laScore.setLocation(500, 0);
+			laScore.setFont(new Font("Serif", Font.BOLD, 30));
+			laScore.setForeground(Color.WHITE);
 		}
 
 		@Override
@@ -73,6 +86,7 @@ public class PooyanApp extends JFrame implements Initable{
 			add(pooyan);
 			wolfAdd(); // 늑대 생성
 			getContentPane().add(laRemainWolf);
+			getContentPane().add(laScore);
 		}
 		@Override
 		public void listener() {
@@ -114,18 +128,19 @@ public class PooyanApp extends JFrame implements Initable{
 		public void wolfAdd() {
 			new Thread(new Runnable() {
 				public void run() {
-					while (true) {
+					while (gameStatus) {
 						try {
+							System.out.println(TAG+pooyan.score);
 							randWolf = (int) (Math.random() * 4) + 1;
-							System.out.println(randWolf);
+//							System.out.println(randWolf);
 							for (int i = 0; i < randWolf; i++) {
 								wolves.add(new Wolf(pooyanApp, pooyan));
 								getContentPane().add(wolves.get(count));
 								count = wolves.size();
-								System.out.println("늑대 " + count);
+								System.out.println(TAG+ " 늑대 " + count);
 								Thread.sleep(1000);
 							}
-							randTime = (int) (Math.random() * (4000 - 1000 + 1)) + 1000;
+							randTime = (int) (Math.random() * (3000- 1000 + 1)) + 1000;
 //							System.out.println(randTime);
 							Thread.sleep(randTime);
 						} catch (Exception e1) {

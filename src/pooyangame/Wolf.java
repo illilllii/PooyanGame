@@ -15,6 +15,7 @@ public class Wolf extends JLabel {
 
 	private PooyanApp pooyanApp;
 	private Pooyan pooyan;
+	private Bomb bomb;
 	private int floor = 0;
 
 	private ImageIcon iconWolfM4, iconWolfM5, iconWalkWolfR, iconAttackStayWolf, iconAttackStayWolfR, iconAttackWolf1,
@@ -22,12 +23,18 @@ public class Wolf extends JLabel {
 			iconFallingWolf1, iconFallingWolf2, iconDieWolf;
 	public int x = 0;
 	public int y = -30;
+	
+	public int bombVx = 10;
+	public int bombVy = -5;
+	public int g = 1;
+	
 	public boolean isDown = false;
 	public boolean isRight = false;
 	public boolean isRightGround = false;
 	public boolean isUp = false;
 	public boolean isAttack = false;
-
+	public boolean isBomb = false;
+	
 	public boolean wolfStatus = true;
 
 	public int rand;
@@ -53,7 +60,9 @@ public class Wolf extends JLabel {
 		iconFallingWolf2 = new ImageIcon("images/fallingWolf2.png");
 		iconDieWolf = new ImageIcon("images/dieWolf.png");
 		laBallonMint = new JLabel(iconBallonMint);
-
+		
+		
+		
 		setIcon(iconWolfM4);
 		setSize(130, 130);
 		setLocation(x, y);
@@ -85,6 +94,13 @@ public class Wolf extends JLabel {
 							pooyanApp.remainWolf --;
 							System.out.println(TAG+" "+pooyanApp.count);
 							pooyanApp.laRemainWolf.setText(""+pooyanApp.remainWolf);
+							if(pooyanApp.remainWolf == 0) {
+								pooyanApp.gameStatus=false;
+								pooyanApp.reset();
+								pooyanApp.score = pooyan.score;
+								new ScoreFrame(pooyanApp);
+								break;
+							}
 							break;
 						}
 					} catch (InterruptedException e) {
@@ -120,6 +136,7 @@ public class Wolf extends JLabel {
 						}
 						y++;
 						setLocation(x, y);
+						
 						try {
 							Thread.sleep(10);
 						} catch (InterruptedException e) {
@@ -176,7 +193,7 @@ public class Wolf extends JLabel {
 								pooyanApp.wolves.remove(wolf);
 								pooyanApp.repaint();
 								pooyanApp.count--;
-								System.out.println("늑대 " + pooyanApp.wolves.size());
+								System.out.println(TAG + "늑대 " + pooyanApp.wolves.size());
 								break;
 							}
 
@@ -241,19 +258,6 @@ public class Wolf extends JLabel {
 		}).start();
 	}
 
-// 늑대 원거리 공격
-//	public void rangedAttack() {
-//		new Thread(new Runnable() {
-//			@Override
-//			public void run() {
-//				while(true) {
-//					
-//				}
-//				
-//			}
-//		}).start();
-//	}
-
 	public void attack() {
 
 		new Thread(new Runnable() {
@@ -273,6 +277,7 @@ public class Wolf extends JLabel {
 						if (x <= pooyan.x + 50) {
 							if (y + 30 >= pooyan.y && y + 30 <= pooyan.y + 50) {
 								pooyanApp.reset();
+								pooyan.life = pooyan.life - 1;
 								break;
 							}
 						}

@@ -10,13 +10,14 @@ public class Meat extends JLabel {
 	public boolean isIn = false;
 	public int x = 0;
 	public int y = 0;
-
+	
 	public PooyanApp pooyanApp;
 	public Pooyan pooyan;
 	public Wolf wolf;
 
 	public boolean isKill = false;
-
+	public int stack=0;
+	
 	public Meat(PooyanApp pooyanApp, Wolf wolf, Pooyan pooyan) {
 		this.pooyanApp = pooyanApp;
 		this.wolf = wolf;
@@ -34,19 +35,27 @@ public class Meat extends JLabel {
 				while (isKill) {
 					try {
 						System.out.println(TAG + "킬 쓰레드 진행중");
-						for (int i = 0; i < pooyanApp.wolves.size(); i++) {
+						for (int i = 0; i < pooyanApp.count; i++) {
 							if (pooyan.meatX >= pooyanApp.wolves.get(i).x
-									&& pooyan.meatX + 30 <= pooyanApp.wolves.get(i).x + 80) {
+									&& pooyan.meatX  <= pooyanApp.wolves.get(i).x + 30) {
 								if (pooyan.meatY >= pooyanApp.wolves.get(i).y
-										&& pooyan.meatY <= pooyanApp.wolves.get(i).y + 100) {
+										&& pooyan.meatY <= pooyanApp.wolves.get(i).y + 70) {
 									if (pooyanApp.wolves.get(i).wolfStatus == true) {
 										System.out.println(TAG + "킬");
+										stack++;
+										if(stack>=3) {
+											pooyan.score = pooyan.score +2000;
+											pooyanApp.laScore.setText(""+pooyan.score);
+										} else {
+											pooyan.score = pooyan.score + 400*stack;
+											pooyanApp.laScore.setText(""+pooyan.score);
+										}
 										pooyanApp.wolves.get(i).wolfStatus = false;
 										pooyanApp.wolves.get(i).attackedFall();
-
 									}
 								}
 							}
+							
 						}
 
 					} catch (Exception e) {
