@@ -117,7 +117,7 @@ public class PooyanApp extends JFrame implements Initable{
 					while (true) {
 						try {
 							randWolf = (int) (Math.random() * 4) + 1;
-//							System.out.println(randWolf);
+							System.out.println(randWolf);
 							for (int i = 0; i < randWolf; i++) {
 								wolves.add(new Wolf(pooyanApp, pooyan));
 								getContentPane().add(wolves.get(count));

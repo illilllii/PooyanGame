@@ -10,6 +10,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
+
+
 public class Pooyan extends JPanel {
 	public Pooyan pooyan = this;
 	public ArrayList<Arrow> listArrow;
@@ -105,7 +108,7 @@ public class Pooyan extends JPanel {
 				public void run() {
 
 					while (true) {
-						System.out.println("실행중");
+						System.out.println(TAG+"meat 장착 쓰레드");
 						if (jpPlayer.getLocation().x == meat.getLocation().x - 10
 								&& jpPlayer.getLocation().y == meat.getLocation().y + 30) {
 							isItem = true;
@@ -166,7 +169,7 @@ public class Pooyan extends JPanel {
 				public void run() {
 					isUp = true;
 					while (isUp) {
-						System.out.println(y);
+//						System.out.println(y);
 						y--;
 						if (y < 100) {
 							y++;
@@ -193,7 +196,7 @@ public class Pooyan extends JPanel {
 				public void run() {
 					isDown = true;
 					while (isDown) {
-						System.out.println(y);
+//						System.out.println(y);
 						y++;
 						if (y > 413) {
 							y--;
@@ -338,11 +341,16 @@ public class Pooyan extends JPanel {
 								
 									arrow.x--;
 									arrow.setLocation(arrow.x, arrow.y);
+									
+									if(arrow.isFall == true) {
+										break;
+									}
 									if (arrow.x < -2) {
 										remove(arrow);
 										arrow.isKill = false;
 										break;
 									}
+									
 									try {
 										Thread.sleep(1);
 									} catch (InterruptedException e) {
