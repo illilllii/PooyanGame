@@ -35,13 +35,14 @@ public class Meat extends JLabel {
 				while (isKill) {
 					try {
 						System.out.println(TAG + "킬 쓰레드 진행중");
-						for (int i = 0; i < pooyanApp.count; i++) {
-							if (pooyan.meatX >= pooyanApp.wolves.get(i).x
-									&& pooyan.meatX  <= pooyanApp.wolves.get(i).x + 30) {
+						for (int i = 0; i < pooyanApp.wolves.size(); i++) {
+							if (pooyan.meatX >= pooyanApp.wolves.get(i).x - 40
+									&& pooyan.meatX  <= pooyanApp.wolves.get(i).x + 50) {
 								if (pooyan.meatY >= pooyanApp.wolves.get(i).y
 										&& pooyan.meatY <= pooyanApp.wolves.get(i).y + 70) {
 									if (pooyanApp.wolves.get(i).wolfStatus == true) {
 										System.out.println(TAG + "킬");
+										pooyanApp.wolves.get(i).wolfStatus = false;
 										stack++;
 										if(stack>=3) {
 											pooyan.score = pooyan.score +2000;
@@ -50,7 +51,6 @@ public class Meat extends JLabel {
 											pooyan.score = pooyan.score + 400*stack;
 											pooyanApp.laScore.setText(""+pooyan.score);
 										}
-										pooyanApp.wolves.get(i).wolfStatus = false;
 										pooyanApp.wolves.get(i).attackedFall();
 									}
 								}

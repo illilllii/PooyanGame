@@ -15,7 +15,6 @@ public class Wolf extends JLabel {
 
 	private PooyanApp pooyanApp;
 	private Pooyan pooyan;
-	private Bomb bomb;
 	private int floor = 0;
 
 	private ImageIcon iconWolfM4, iconWolfM5, iconWalkWolfR, iconAttackStayWolf, iconAttackStayWolfR, iconAttackWolf1,
@@ -94,11 +93,8 @@ public class Wolf extends JLabel {
 							pooyanApp.remainWolf --;
 							System.out.println(TAG+" "+pooyanApp.count);
 							pooyanApp.laRemainWolf.setText(""+pooyanApp.remainWolf);
-							if(pooyanApp.remainWolf == 0) {
-								pooyanApp.gameStatus=false;
-								pooyanApp.reset();
-								pooyanApp.score = pooyan.score;
-								new ScoreFrame(pooyanApp);
+							if(pooyanApp.remainWolf <= 0) {
+								pooyanApp.gameEnd();
 								break;
 							}
 							break;
@@ -278,13 +274,16 @@ public class Wolf extends JLabel {
 							if (y + 30 >= pooyan.y && y + 30 <= pooyan.y + 50) {
 								pooyanApp.reset();
 								pooyan.life = pooyan.life - 1;
+								if(pooyan.life<0) {
+									pooyanApp.gameEnd();
+								}
 								break;
 							}
 						}
 						if (wolfStatus == false) {
 							break;
 						}
-						Thread.sleep(800); // 공격 모션 딜레이
+						Thread.sleep(500); // 공격 모션 딜레이
 						setIcon(iconAttackStayWolfR);
 						x = 541;
 						setLocation(x, y);

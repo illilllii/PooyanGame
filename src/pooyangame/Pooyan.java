@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class Pooyan extends JPanel {
 	public Pooyan pooyan = this;
-	public ArrayList<Arrow> listArrow;
+//	public ArrayList<Arrow> listArrow;
 	private Meat meat;
 	private final static String TAG = "Pooyan : ";
 	private Color transparency;
@@ -65,7 +65,7 @@ public class Pooyan extends JPanel {
 		transparency = new Color(255, 0, 0, 0);
 		jpPlayer = new JPanel();
 
-		listArrow = new ArrayList<Arrow>();
+//		listArrow = new ArrayList<Arrow>();
 		meat = new Meat(pooyanApp, wolf, pooyan);
 
 	}
@@ -105,8 +105,7 @@ public class Pooyan extends JPanel {
 
 				@Override
 				public void run() {
-
-					while (true) {
+					while (pooyanApp.gameStatus) {
 						System.out.println(TAG + "meat 장착 쓰레드");
 						if (isItem == false) {
 							if (jpPlayer.getLocation().x == meat.getLocation().x - 10
@@ -239,7 +238,7 @@ public class Pooyan extends JPanel {
 						public void run() {
 
 							while (true) {
-								if (meatX > 450) {
+								if (meatX > 400) {
 									meatX = meatX + meatVx;
 								} else {
 									meatVy = meatVy + g; // 중력가속도에 의해 meatVy 점점 증가
