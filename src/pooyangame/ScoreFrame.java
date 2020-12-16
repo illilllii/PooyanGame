@@ -37,13 +37,13 @@ public class ScoreFrame extends JFrame{
 		laScore.setForeground(Color.BLACK);
 		
 
-		try {
-			fout = new FileWriter("D:\\pooyanScore.txt", true);
-			fout.append(pooyanApp.score + "\n");
-			fout.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			fout = new FileWriter("D:\\pooyanScore.txt", true);
+//			fout.append(pooyanApp.score + "\n");
+//			fout.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		add(laScore);
 		

@@ -4,10 +4,6 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-
-
-
-
 public class Wolf extends JLabel {
 	private static final long serialVersionUID = 1L;
 	public Wolf wolf = this;
@@ -22,27 +18,28 @@ public class Wolf extends JLabel {
 			iconFallingWolf1, iconFallingWolf2, iconDieWolf;
 	public int x = 0;
 	public int y = -30;
-	
-	public int bombVx = 10;
-	public int bombVy = -5;
-	public int g = 1;
-	
+
 	public boolean isDown = false;
 	public boolean isRight = false;
 	public boolean isRightGround = false;
 	public boolean isUp = false;
 	public boolean isAttack = false;
 	public boolean isBomb = false;
-	
+	public boolean keepBomb = false;
+
 	public boolean wolfStatus = true;
 
+	public Bomb bomb;
+
 	public int rand;
+	public int randKeepBomb;
 
 	public JLabel laBallonMint;
 
 	public Wolf(PooyanApp pooyanApp, Pooyan pooyan) {
 		this.pooyanApp = pooyanApp;
 		this.pooyan = pooyan;
+
 
 		iconWolfM4 = new ImageIcon("images/WolfMint4.png");
 		iconWolfM5 = new ImageIcon("images/WolfMint5.png");
@@ -59,41 +56,87 @@ public class Wolf extends JLabel {
 		iconFallingWolf2 = new ImageIcon("images/fallingWolf2.png");
 		iconDieWolf = new ImageIcon("images/dieWolf.png");
 		laBallonMint = new JLabel(iconBallonMint);
-		
-		
-		
+
 		setIcon(iconWolfM4);
 		setSize(130, 130);
 		setLocation(x, y);
 		rand = (int) (Math.random() * 300) + 20;
+		randKeepBomb = (int) (Math.random()*2)+1; // 1 ~ 3
+		if(randKeepBomb != 1) {
+			keepBomb = true;
+		}
 		moveRight();
+		
 	}
 
+	public void bombAttack() {
+		if(keepBomb == true) {
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					keepBomb = false;
+					bomb = new Bomb();
+					isBomb = true; 
+					bomb.x = x +20;
+					bomb.y = y + 40;
+					bomb.setLocation(bomb.x, bomb.y);
+					pooyanApp.add(bomb);
+					while(isBomb) {
+						bomb.x++;
+						bomb.setLocation(bomb.x, bomb.y);
+						try {
+							Thread.sleep(3);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						if(bomb.x >= 490) {
+							if(bomb.y>=pooyan.y && bomb.y<=pooyan.y+40 && pooyan.pooyanStatus == true) {
+								isBomb = false;
+								pooyanApp.remove(bomb);
+								pooyan.die();
+								break;
+							} else {
+								if(bomb.x >= 530 ) {
+									isBomb =false;
+									pooyanApp.remove(bomb);
+									repaint();
+									break;
+								}
+							}
+						}
+						
+					}
+					
+				}
+			}).start();
+		}
+	}
+	
 	public void attackedFall() {
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
-				while(true) {
+				while (true) {
 					try {
 						setIcon(iconFallingWolf1);
-						y=y+3;
+						y = y + 3;
 						Thread.sleep(10);
 						setIcon(iconFallingWolf2);
-						y=y+3;
+						y = y + 3;
 						Thread.sleep(10);
 						setLocation(x, y);
-						if(y>490) {
+						if (y > 490) {
 							setIcon(iconDieWolf);
 							Thread.sleep(1000);
 							pooyanApp.remove(wolf);
 							pooyanApp.repaint();
 							pooyanApp.wolves.remove(wolf);
 							pooyanApp.count--;
-							pooyanApp.remainWolf --;
-							System.out.println(TAG+" "+pooyanApp.count);
-							pooyanApp.laRemainWolf.setText(""+pooyanApp.remainWolf);
-							if(pooyanApp.remainWolf <= 0) {
+							pooyanApp.remainWolf--;
+							System.out.println(TAG + " " + pooyanApp.count);
+							pooyanApp.laRemainWolf.setText("" + pooyanApp.remainWolf);
+							if (pooyanApp.remainWolf <= 0) {
 								pooyanApp.gameEnd();
 								break;
 							}
@@ -102,12 +145,10 @@ public class Wolf extends JLabel {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-			}
+				}
 			}
 		}).start();
-		
-			
-		
+
 	}
 
 	public void moveFall() {
@@ -120,30 +161,35 @@ public class Wolf extends JLabel {
 					isDown = true;
 					setIcon(iconWolfM4);
 					while (isDown) {
-						if (y > 490) {
-							isDown = false;
-							isRightGround = true;
-							wolf.moveRight();
-							setIcon(iconWalkWolfR);
-							break;
-						}
-						if (wolfStatus == false) {
-							break;
-						}
-						y++;
-						setLocation(x, y);
-						
 						try {
+							if (y > 490) {
+								isDown = false;
+								isRightGround = true;
+								wolf.moveRight();
+								setIcon(iconWalkWolfR);
+								break;
+							}
+							if (wolfStatus == false) {
+								break;
+							}
+							y++;
+							setLocation(x, y);
+							if (pooyan.y == y + 30 && keepBomb == true && pooyan.pooyanStatus == true) {
+								bombAttack();
+								setIcon(iconWalkWolfR);
+								Thread.sleep(200);
+								setIcon(iconWolfM4);
+							}
 							Thread.sleep(10);
-						} catch (InterruptedException e) {
+						} catch (Exception e) {
 							e.printStackTrace();
 						}
 					}
-					try {
-						Thread.sleep(10);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+//					try {
+//						Thread.sleep(10);
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
 				}
 			}).start();
 		}
@@ -269,13 +315,14 @@ public class Wolf extends JLabel {
 						Thread.sleep(500); // 공격 모션 딜레이
 						setIcon(iconAttackWolf2);
 						// 플레이어 좌표가 울프의 근접공격 좌표와 같아지면 플레이어 죽음
-						if (x <= pooyan.x + 50) {
+						if (x <= pooyan.x + 50 && pooyan.pooyanStatus == true) {
 							if (y + 30 >= pooyan.y && y + 30 <= pooyan.y + 50) {
-								pooyanApp.reset();
-								pooyan.life = pooyan.life - 1;
-								if(pooyan.life<0) {
-									pooyanApp.gameEnd();
-								}
+//								pooyanApp.reset();
+//								pooyan.life = pooyan.life - 1;
+//								if(pooyan.life<0) {
+//									pooyanApp.gameEnd();
+//								}
+								pooyan.die();
 								break;
 							}
 						}

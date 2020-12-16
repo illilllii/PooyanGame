@@ -26,7 +26,8 @@ public class PooyanApp extends JFrame implements Initable {
 	
 	public JLabel laRemainWolf;
 	public int remainWolf = 32;
-
+	public JLabel laLife;
+	
 	public JLabel laScore;
 	public int score = 0;
 
@@ -57,6 +58,8 @@ public class PooyanApp extends JFrame implements Initable {
 		pooyan = new Pooyan(pooyanApp, wolf);
 		laRemainWolf = new JLabel();
 		laScore = new JLabel();
+		
+		laLife = new JLabel();
 
 	}
 
@@ -81,6 +84,12 @@ public class PooyanApp extends JFrame implements Initable {
 		laScore.setLocation(500, 0);
 		laScore.setFont(new Font("Serif", Font.BOLD, 30));
 		laScore.setForeground(Color.WHITE);
+		
+		laLife.setText("❤ ❤");
+		laLife.setFont(new Font("Serif", Font.BOLD, 30));
+		laLife.setForeground(Color.WHITE);
+		//laLife.setLocation(400,0);
+		laLife.setBounds(530, 20, 70, 30);
 	}
 
 	@Override
@@ -89,6 +98,7 @@ public class PooyanApp extends JFrame implements Initable {
 		wolfAdd(); // 늑대 생성
 		getContentPane().add(laRemainWolf);
 		getContentPane().add(laScore);
+		add(laLife);
 	}
 
 	@Override
@@ -98,12 +108,19 @@ public class PooyanApp extends JFrame implements Initable {
 			public void keyPressed(KeyEvent e) {
 
 				if (e.getKeyCode() == KeyEvent.VK_UP) {
-					pooyan.moveUp();
+					if (pooyan.pooyanStatus == true) {
+						pooyan.moveUp();
+					}
+					
 				} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-					pooyan.moveDown();
+					if (pooyan.pooyanStatus == true) {
+						pooyan.moveDown();
+					}
 				} else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					pooyan.isShoot = true;
-					pooyan.shoot();
+					if (pooyan.pooyanStatus == true) {
+						pooyan.isShoot = true;
+						pooyan.shoot();
+					}	
 
 				}
 
@@ -120,8 +137,10 @@ public class PooyanApp extends JFrame implements Initable {
 					System.out.println("keyReleased");
 					pooyan.isShoot = false;
 //						pooyan.isItem = false;
-					pooyan.shoot();
+					if(pooyan.pooyanStatus == true) {
+						pooyan.shoot();
 
+					}
 				}
 			}
 
@@ -162,16 +181,32 @@ public class PooyanApp extends JFrame implements Initable {
 	// 플레이어가 죽었을때 리셋
 	public void reset() {
 		for (int i = 0; i < wolves.size(); i++) {
+
 			remove(wolves.get(i));
 			wolves.get(i).wolfStatus = false;
 		}
+		System.out.println(TAG+"pooyan.life"+pooyan.life);
 		wolves.clear();
+		if (pooyan.life == 1) {
+			laLife.setText("❤");
+			
+			System.out.println(TAG+"pooyan.life"+pooyan.life);
+
+		} else if (pooyan.life == 0) {
+			remove(pooyan.jpPlayer);
+			laLife.setText("");
+			System.out.println(TAG+"pooyan.life"+pooyan.life);
+			repaint();
+
+		}
 		repaint();
 		count = 0;
 		floor = 0;
 		pooyan.x = 486;
 		pooyan.y = 130;
 		pooyan.jpPlayer.setLocation(pooyan.x, pooyan.y);
+		
+		
 	}
 	
 	// 플레이어가 목숨을 다 잃었거나 목표치의 wolf를 죽였을때 게임엔드
