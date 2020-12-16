@@ -1,11 +1,15 @@
 # PooyanGame
 
 ## PPT (그림을 클릭하세요)
-ppt 이미지 삽입
+
+![pptImg](./mdimg/pptImg.PNG)
+
 ## 시연영상 (그림을 클릭하세요)
+
 [![video](./mdimg/video.PNG)](https://www.youtube.com/watch?v=Rada7bVa9Xw&feature=youtu.be)
 
 ## 푸얀(플레이어)
+
 ### 푸얀의 기능
 1. 상하 이동
 2. 아이템 획득(고기 폭탄)
