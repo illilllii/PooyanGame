@@ -31,8 +31,8 @@ protected void paintComponent(Graphics g) {
 * 고기 폭탄 아이템 플레이어 상단에 위치
 * 고기 폭탄 획득 시 점수 200점 증가
 * 고기 폭탄 획득 시 푸얀 이미지 변경
-고기 폭탄 푸얀 상단에 있는 이미지 삽입
-푸얀 변경 이미지 
+
+![MeatPlayer](./mdimg/MeatPlayer.png)
 
 #### 3. 공격
 * 키보드 스페이스 바
