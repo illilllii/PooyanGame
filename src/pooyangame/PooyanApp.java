@@ -156,9 +156,7 @@ public class PooyanApp extends JFrame implements Initable {
 			public void run() {
 				while (remainWolf > 0 && gameStatus==true) {
 					try {
-						System.out.println(TAG + pooyan.score);
 						randWolf = (int) (Math.random() * 3) + 2;
-//							System.out.println(randWolf);
 						for (int i = 0; i < randWolf; i++) {
 							if(gameStatus==false) {
 								reset();
@@ -171,7 +169,6 @@ public class PooyanApp extends JFrame implements Initable {
 							Thread.sleep(1000);
 						}
 						randTime = (int) (Math.random() * (3000 - 1000 + 1)) + 1000;
-//							System.out.println(randTime);
 						Thread.sleep(randTime);
 					} catch (Exception e1) {
 						e1.printStackTrace();

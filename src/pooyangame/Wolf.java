@@ -35,8 +35,6 @@ public class Wolf extends JLabel {
 	public int rand;
 	public int randKeepBomb;
 
-	private JLabel laBallonMint;
-
 	public Wolf(PooyanApp pooyanApp, Pooyan pooyan) {
 		this.pooyanApp = pooyanApp;
 		this.pooyan = pooyan;
@@ -56,7 +54,7 @@ public class Wolf extends JLabel {
 		iconFallingWolf1 = new ImageIcon("images/fallingWolf1.png");
 		iconFallingWolf2 = new ImageIcon("images/fallingWolf2.png");
 		iconDieWolf = new ImageIcon("images/dieWolf.png");
-		laBallonMint = new JLabel(iconBallonMint);
+		new JLabel(iconBallonMint);
 
 		setIcon(iconWolfM4);
 		setSize(130, 130);

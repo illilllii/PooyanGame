@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 
 public class ScoreFrame extends JFrame{
 	
+	private static final String TAG = "ScoreFrame:";
 	private PooyanApp pooyanApp;
 	
 	public JLabel laScore;
