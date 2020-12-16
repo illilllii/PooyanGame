@@ -109,7 +109,7 @@ meatY = meatY + meatVy;
 * 원거리 공격 : 늑대가 폭탄을 푸얀쪽으로 던진다.
 * 근거리 공격 : 늑대가 사다리에서 공격한다.
 
-![AttackWolf](./mdimg/AttackWolf)
+![AttackWolf](./mdimg/AttackWolf.png)
 
 #### 4. 죽음
 * 푸얀이 쏜 화살이나 고기 폭탄을 맞을 시 땅에 떨어진다.
@@ -124,13 +124,16 @@ meatY = meatY + meatVy;
 ### 1. 시작 화면(TitleFrame)
 * 프로그램 시작 초기 화면
 * 키보드의 엔터 키로 다음 프레임 실행 -> 본 프레임 종료
-시작 화면 이미지 삽입
+
+![TitleFrame](./mdimg/TitleFrame.png)
 
 ### 2. 게임 화면(PooyanApp)
 * 게임이 진행되는 화면
 * 플레이어의 생명이 전부 소진되거나 남은 늑대 수가 없으면(게임오버) 다음 프레임 실행 -> 본 프레임 종료X
-게임 화면 이미지 삽입
+
+![GameFrame](./mdimg/GameFrame.png)
 
 ### 3. 점수 확인 화면(ScoreFrame)
 * 게임오버 시 게임 화면 위에 점수 확인할 수 있는 프레임을 띄운다.
-점수 확인 화면 
+
+![GameEndFrame](./mdimg/GameEndFrame.png)
