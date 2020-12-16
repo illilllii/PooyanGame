@@ -136,4 +136,6 @@ meatY = meatY + meatVy;
 ### 3. 점수 확인 화면(ScoreFrame)
 * 게임오버 시 게임 화면 위에 점수 확인할 수 있는 프레임을 띄운다.
 
-![GameEndFrame](./mdimg/GameEndFrame.png)
+![GameEndFrame](./mdimg/GameEndFrame.PNG)
+
+## 클래스 다이어그램
