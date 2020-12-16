@@ -15,6 +15,7 @@ video 이미지 삽입
 * 독립적인 쓰레드 사용
 * 푸얀의 위치에 따라 줄의 길이 변경
 
+``` JAVA
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
@@ -22,7 +23,8 @@ video 이미지 삽입
 		g2.setStroke(new BasicStroke(3));
 		g2.drawLine(jpPlayer.getLocation().x + 35, 100, jpPlayer.getLocation().x + 35, jpPlayer.getLocation().y);
 	}
-	
+```
+
 고기 폭탄 획득 시 +200
 2. 공격
 화살 공격 -> 맞으면 +200
