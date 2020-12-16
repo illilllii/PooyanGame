@@ -40,7 +40,9 @@ protected void paintComponent(Graphics g) {
 	- 공격 대기 상태 이미지에서 공격 상태의 이미지로 변경된다.
 	- 늑대의 풍선에 화살에 맞으면 점수 200점 증가 후 화살이 사라진다.
 	- 늑대의 몸에 화살에 맞으면 화살이 아래로 추락한다.
-화살공격 이미지 삽입
+	
+![AttackPlayer](./mdimg/AttackPlayer.png)
+
 * 고기폭탄 공격
 	- 늑대가 고기폭탄에 맞으면 점수 400점 증가(풍선, 몸 상관없음)
 	- 중력이 작용해 포물선을 그리며 아래로 떨어진다.
@@ -49,7 +51,6 @@ meatVy = meatVy + g; // 중력가속도에 의해 meatVy 점점 증가
 meatX = meatX + meatVx;
 meatY = meatY + meatVy;
 ```
-고기 폭탄 이미지 삽입
 
 #### 4. 죽음
 * 늑대의 공격에 당했을 때, 땅으로 떨어진다.
