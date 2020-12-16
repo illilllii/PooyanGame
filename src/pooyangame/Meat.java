@@ -7,7 +7,9 @@ public class Meat extends JLabel {
 	private static final String TAG = "Meat : ";
 
 	private ImageIcon icMeat;
-	public boolean isIn = false;
+	//
+	
+	//public boolean isIn = false;
 	public int x = 0;
 	public int y = 0;
 	

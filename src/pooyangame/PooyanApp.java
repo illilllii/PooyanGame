@@ -16,17 +16,20 @@ public class PooyanApp extends JFrame implements Initable {
 	private PooyanApp pooyanApp = this;
 
 	private static final String TAG = "PooyanApp : ";
-	public int floor = 0;
-	public int count = 0;
+	
 
 	private JLabel laBackground;
 	private Wolf wolf;
 	private Pooyan pooyan;
-	ArrayList<Wolf> wolves;
 	
+	public ArrayList<Wolf> wolves;
+	public int floor = 0;
+	public int count = 0;
 	public JLabel laRemainWolf;
-	public int remainWolf = 32;
 	public JLabel laLife;
+	
+	public int remainWolf = 32;
+
 	
 	public JLabel laScore;
 	public int score = 0;

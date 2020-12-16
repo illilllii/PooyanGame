@@ -15,14 +15,17 @@ public class Arrow extends JLabel{
 	
 	private ImageIcon icBow;
 	private ImageIcon icBowFall;
+	private PooyanApp pooyanApp;
+	private Wolf wolf;
+	private Pooyan pooyan;
+	
+	
 	public boolean isIn = false;
 	public boolean isRemove = false;
 	public int x = 0;
 	public int y = 0;
 	
-	private PooyanApp pooyanApp;
-	private Wolf wolf;
-	private Pooyan pooyan;
+	
 	
 	public boolean isKill = true;
 	public boolean isFall = false;

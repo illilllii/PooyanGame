@@ -6,16 +6,17 @@ import javax.swing.JLabel;
 
 public class Wolf extends JLabel {
 	private static final long serialVersionUID = 1L;
-	public Wolf wolf = this;
+	
 	private final static String TAG = "Wolf : ";
 
 	private PooyanApp pooyanApp;
 	private Pooyan pooyan;
 	private int floor = 0;
 
-	private ImageIcon iconWolfM4, iconWolfM5, iconWalkWolfR, iconAttackStayWolf, iconAttackStayWolfR, iconAttackWolf1,
-			iconAttackWolf2, iconBallonMint, iconBallonMintPop1, iconBallonMintPop2, iconBallonMintPop3,
-			iconFallingWolf1, iconFallingWolf2, iconDieWolf;
+	private ImageIcon iconWolfM4, iconWalkWolfR, iconAttackStayWolf, iconAttackStayWolfR, iconAttackWolf1,
+			iconAttackWolf2, iconBallonMint, iconFallingWolf1, iconFallingWolf2, iconDieWolf;
+	
+	public Wolf wolf = this;
 	public int x = 0;
 	public int y = -30;
 
@@ -34,7 +35,7 @@ public class Wolf extends JLabel {
 	public int rand;
 	public int randKeepBomb;
 
-	public JLabel laBallonMint;
+	private JLabel laBallonMint;
 
 	public Wolf(PooyanApp pooyanApp, Pooyan pooyan) {
 		this.pooyanApp = pooyanApp;
@@ -42,16 +43,16 @@ public class Wolf extends JLabel {
 
 
 		iconWolfM4 = new ImageIcon("images/WolfMint4.png");
-		iconWolfM5 = new ImageIcon("images/WolfMint5.png");
+		new ImageIcon("images/WolfMint5.png");
 		iconWalkWolfR = new ImageIcon("images/walkWolfR.gif");
 		iconAttackStayWolf = new ImageIcon("images/attackStayWolf.gif");
 		iconAttackStayWolfR = new ImageIcon("images/attackStayWolfR.png");
 		iconAttackWolf1 = new ImageIcon("images/attackWolf1.png");
 		iconAttackWolf2 = new ImageIcon("images/attackWolf2.png");
 		iconBallonMint = new ImageIcon("images/ballonMint.png");
-		iconBallonMintPop1 = new ImageIcon("images/ballonMintPop1.png");
-		iconBallonMintPop2 = new ImageIcon("images/ballonMintPop2.png");
-		iconBallonMintPop3 = new ImageIcon("images/ballonMintPop3.png");
+		new ImageIcon("images/ballonMintPop1.png");
+		new ImageIcon("images/ballonMintPop2.png");
+		new ImageIcon("images/ballonMintPop3.png");
 		iconFallingWolf1 = new ImageIcon("images/fallingWolf1.png");
 		iconFallingWolf2 = new ImageIcon("images/fallingWolf2.png");
 		iconDieWolf = new ImageIcon("images/dieWolf.png");

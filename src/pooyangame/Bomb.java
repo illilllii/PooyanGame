@@ -4,14 +4,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Bomb extends JLabel{
+	private static final String TAG = "Bomb : ";
+
 	private ImageIcon icBomb;
-	public boolean isIn = false;
+	//public boolean isIn = false;
 	public int x=0;
 	public int y=0;
-	public PooyanApp pooyanApp;
-	public Pooyan pooyan;
-	public Wolf wolf;
-	public boolean isKill = false;
+	//public boolean isKill = false;
 	public Bomb() {
 		icBomb = new ImageIcon("images/bomb.png");
 		setIcon(icBomb);

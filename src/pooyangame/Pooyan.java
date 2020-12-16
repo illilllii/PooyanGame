@@ -19,6 +19,9 @@ public class Pooyan extends JPanel {
 
 	private ImageIcon icElevator, icAttackBow, icAttackPy, icAttackMeatPy, icFallingPy, icDiePy;
 	private JLabel laElevator, laAttackBow, laAttackPy, laAttackMeatPy, laFallingPy, laDiePy;
+	private PooyanApp pooyanApp;
+	private Wolf wolf;
+	
 	public JPanel jpPlayer ,jpDie;
 
 	public boolean isUp = false;
@@ -27,7 +30,7 @@ public class Pooyan extends JPanel {
 	public boolean isArrow = false;
 	public boolean isItem = false;
 	public boolean isMeat = false;
-	public boolean isDie = false;
+	//public boolean isDie = false;
 	public boolean pooyanStatus = true;
 	
 	public int x = 486;
@@ -45,12 +48,9 @@ public class Pooyan extends JPanel {
 	public int g = 1; // 중력가속도
 	public int meatVx = -15; // meat x축 초기 속도
 	public int meatVy = 0; // meat y축 초기 속도
-	private int list = 0;
-
 	public int score = 0;
 
-	private PooyanApp pooyanApp;
-	private Wolf wolf;
+	
 
 	private void init() {
 
