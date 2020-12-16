@@ -143,3 +143,4 @@ meatY = meatY + meatVy;
 ![GameEndFrame](./mdimg/GameEndFrame.PNG)
 
 ## 클래스 다이어그램
+![ClassDiagram](./mdimg/ClassDiagram.png)
