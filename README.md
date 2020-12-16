@@ -3,7 +3,7 @@
 ## PPT (그림을 클릭하세요)
 ppt 이미지 삽입
 ## 시연영상 (그림을 클릭하세요)
-video 이미지 삽입
+[![video](./mdimg/video.PNG)](https://www.youtube.com/watch?v=Rada7bVa9Xw&feature=youtu.be)
 
 ## 푸얀(플레이어)
 ### 푸얀의 기능
@@ -26,7 +26,7 @@ protected void paintComponent(Graphics g) {
 	g2.drawLine(jpPlayer.getLocation().x + 35, 100, jpPlayer.getLocation().x + 35, jpPlayer.getLocation().y);
 }
 ```
-푸얀 이미지 삽입 (두장) 짧은 거 긴 거
+![Player](./mdimg/Player.png)
 #### 2. 아이템 획득(고기 폭탄)
 * 고기 폭탄 아이템 플레이어 상단에 위치
 * 고기 폭탄 획득 시 점수 200점 증가
