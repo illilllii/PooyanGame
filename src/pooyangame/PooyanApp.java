@@ -28,7 +28,7 @@ public class PooyanApp extends JFrame implements Initable {
 	public int remainWolf = 32;
 
 	public JLabel laScore;
-	public int score = 2;
+	public int score = 0;
 
 	public int randTime; // 늑대 생성 간격 랜덤 시간
 	public int randWolf; // 늑대 생성 수 랜덤

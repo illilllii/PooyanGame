@@ -385,6 +385,8 @@ public class Pooyan extends JPanel {
 
 	}
 
+	
+	// มู
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

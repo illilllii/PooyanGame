@@ -41,7 +41,6 @@ public class Meat extends JLabel {
 								if (pooyan.meatY >= pooyanApp.wolves.get(i).y
 										&& pooyan.meatY <= pooyanApp.wolves.get(i).y + 70) {
 									if (pooyanApp.wolves.get(i).wolfStatus == true) {
-										System.out.println(TAG + "ų");
 										pooyanApp.wolves.get(i).wolfStatus = false;
 										stack++;
 										if(stack>=3) {

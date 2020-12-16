@@ -255,7 +255,6 @@ public class Wolf extends JLabel {
 	}
 
 	public void attack() {
-
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -267,7 +266,7 @@ public class Wolf extends JLabel {
 						setIcon(iconAttackWolf1);
 						x = 500;
 						setLocation(x, y);
-						Thread.sleep(800); // 공격 모션 딜레이
+						Thread.sleep(500); // 공격 모션 딜레이
 						setIcon(iconAttackWolf2);
 						// 플레이어 좌표가 울프의 근접공격 좌표와 같아지면 플레이어 죽음
 						if (x <= pooyan.x + 50) {
@@ -283,7 +282,7 @@ public class Wolf extends JLabel {
 						if (wolfStatus == false) {
 							break;
 						}
-						Thread.sleep(500); // 공격 모션 딜레이
+						Thread.sleep(200); // 공격 모션 딜레이
 						setIcon(iconAttackStayWolfR);
 						x = 541;
 						setLocation(x, y);
