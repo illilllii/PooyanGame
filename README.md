@@ -2,7 +2,7 @@
 
 ## PPT (그림을 클릭하세요)
 
-![pptImg](./mdimg/pptImg.PNG)
+[![pptImg](./mdimg/pptImg.PNG)](./ppt/Pooyan.pptx)
 
 ## 시연영상 (그림을 클릭하세요)
 
