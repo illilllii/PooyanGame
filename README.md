@@ -3,7 +3,7 @@
 ## PPT (그림을 클릭하세요)
 
 <a href="./ppt/Pooyan.pptx" download>
-![pptImg](./mdimg/pptImg.PNG)
+<img src="./mdimg/pptImg.PNG" alt="Pooyan.pptx">
 </a>
 
 ## 시연영상 (그림을 클릭하세요)
