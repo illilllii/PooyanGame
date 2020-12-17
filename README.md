@@ -155,7 +155,7 @@ meatY = meatY + meatVy;
 * 플레이어의 생명이 전부 소진되거나 남은 늑대 수가 없으면(게임오버) 다음 프레임 실행 -> 본 프레임 종료X
 
 <p align="center">
-  <img src="./mdimg/GameFrame.png"/>
+  <img src="./mdimg/GameFrame.png" width="602px" height="618px"/>
 </p>
 
 ### 3. 점수 확인 화면(ScoreFrame)
