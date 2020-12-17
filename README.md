@@ -33,7 +33,7 @@ protected void paintComponent(Graphics g) {
 }
 ```
 <p aligin="center">
-	<img src="./mdimg/Player.png">
+	<img src="./mdimg/Player.png" aligin="center">
 </p>
 
 #### 2. 아이템 획득(고기 폭탄)
