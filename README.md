@@ -32,7 +32,6 @@ protected void paintComponent(Graphics g) {
 	g2.drawLine(jpPlayer.getLocation().x + 35, 100, jpPlayer.getLocation().x + 35, jpPlayer.getLocation().y);
 }
 ```
-img.alignleft{float:left} img.alignright{float:right} img.aligncenter{display:block;margin:0 auto}
 
 ![Player](./mdimg/Player.png)
 
