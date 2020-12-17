@@ -32,7 +32,9 @@ protected void paintComponent(Graphics g) {
 	g2.drawLine(jpPlayer.getLocation().x + 35, 100, jpPlayer.getLocation().x + 35, jpPlayer.getLocation().y);
 }
 ```
-<p aligin="center"><img src="./mdimg/Player.png"></p>
+<p aligin="center">
+	<img src="./mdimg/Player.png">
+</p>
 
 #### 2. 아이템 획득(고기 폭탄)
 * 고기 폭탄 아이템 플레이어 상단에 위치
