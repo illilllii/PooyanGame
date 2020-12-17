@@ -33,8 +33,6 @@ protected void paintComponent(Graphics g) {
 }
 ```
 
-![Player](./mdimg/Player.png)
-
 <p align="center">
   <img src="./mdimg/Player.png"/>
 </p>
@@ -44,7 +42,9 @@ protected void paintComponent(Graphics g) {
 * 고기 폭탄 획득 시 점수 200점 증가
 * 고기 폭탄 획득 시 푸얀 이미지 변경
 
-![MeatPlayer](./mdimg/MeatPlayer.png)
+<p align="center">
+  <img src="./mdimg/MeatPlayer.png"/>
+</p>
 
 #### 3. 공격
 * 키보드 스페이스 바
@@ -53,7 +53,10 @@ protected void paintComponent(Graphics g) {
 	- 늑대의 풍선에 화살에 맞으면 점수 200점 증가 후 화살이 사라진다.
 	- 늑대의 몸에 화살에 맞으면 화살이 아래로 추락한다.
 	
-![AttackPlayer](./mdimg/AttackPlayer.png)
+
+<p align="center">
+  <img src="./mdimg/AttackPlayer.png"/>
+</p>
 
 * 고기폭탄 공격
 	- 늑대가 고기폭탄에 맞으면 점수 400점 증가(풍선, 몸 상관없음)
@@ -67,7 +70,9 @@ meatY = meatY + meatVy;
 #### 4. 죽음
 * 늑대의 공격에 당했을 때, 땅으로 떨어진다.
 
-![DiePlayer](./mdimg/DiePlayer.png)
+<p align="center">
+  <img src="./mdimg/DiePlayer.png"/>
+</p>
 
 ## 늑대(적)
 ### 늑대의 기능
@@ -115,13 +120,17 @@ meatY = meatY + meatVy;
 	- 사다리를 타고 올라간다.
 * 방향에 따라 독립적인 쓰레드를 사용한다.(나무 위에서 오른쪽 이동, 땅에서 오른쪽 이동은 같은 쓰레드 사용)
 
-![MoveWolf](./mdimg/MoveWolf.png)
+<p align="center">
+  <img src="./mdimg/MoveWolf.png"/>
+</p>
 
 #### 3. 공격
 * 원거리 공격 : 늑대가 폭탄을 푸얀쪽으로 던진다.
 * 근거리 공격 : 늑대가 사다리에서 공격한다.
 
-![AttackWolf](./mdimg/AttackWolf.png)
+<p align="center">
+  <img src="./mdimg/AttackWolf.png"/>
+</p>
 
 #### 4. 죽음
 * 푸얀이 쏜 화살이나 고기 폭탄을 맞을 시 땅에 떨어진다.
@@ -137,18 +146,27 @@ meatY = meatY + meatVy;
 * 프로그램 시작 초기 화면
 * 키보드의 엔터 키로 다음 프레임 실행 -> 본 프레임 종료
 
-![TitleFrame](./mdimg/TitleFrame.png)
+<p align="center">
+  <img src="./mdimg/TitleFrame.png"/>
+</p>
 
 ### 2. 게임 화면(PooyanApp)
 * 게임이 진행되는 화면
 * 플레이어의 생명이 전부 소진되거나 남은 늑대 수가 없으면(게임오버) 다음 프레임 실행 -> 본 프레임 종료X
 
-![GameFrame](./mdimg/GameFrame.png)
+<p align="center">
+  <img src="./mdimg/GameFrame.png"/>
+</p>
 
 ### 3. 점수 확인 화면(ScoreFrame)
 * 게임오버 시 게임 화면 위에 점수 확인할 수 있는 프레임을 띄운다.
 
-![GameEndFrame](./mdimg/GameEndFrame.PNG)
+<p align="center">
+  <img src="./mdimg/GameEndFrame.PNG"/>
+</p>
 
 ## 클래스 다이어그램
-![ClassDiagram](./mdimg/ClassDiagram.png)
+
+<p align="center">
+  <img src="./mdimg/ClassDiagram.png"/>
+</p>
