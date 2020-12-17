@@ -35,6 +35,10 @@ protected void paintComponent(Graphics g) {
 
 ![Player](./mdimg/Player.png)
 
+<p align="center">
+  <img src="./mdimg/Player.png"/>
+</p>
+
 #### 2. 아이템 획득(고기 폭탄)
 * 고기 폭탄 아이템 플레이어 상단에 위치
 * 고기 폭탄 획득 시 점수 200점 증가
